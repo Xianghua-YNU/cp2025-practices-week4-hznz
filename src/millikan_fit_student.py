@@ -37,6 +37,10 @@ def calculate_parameters(x, y):
         Exx: x^2的平均值
         Exy: xy的平均值
     """
+   if len(x) == 0 or len(y) == 0:
+        raise ValueError("输入数据不能为空")
+   if len(x) != len(y):
+        raise ValueError("x和y数组长度必须相同")
    N = len(x)
    Ex = np.mean(x)      # x的均值
    Ey = np.mean(y)      # y的均值
@@ -65,6 +69,8 @@ def plot_data_and_fit(x, y, m, c):
     返回:
         fig: matplotlib图像对象
     """
+   if np.isnan(m) or np.isnan(c):
+        raise ValueError("斜率和截距不能为NaN")
    fig, ax = plt.subplots()
    ax.scatter(x, y, label='实验数据')
    y_fit = m*x + c
@@ -86,6 +92,8 @@ def calculate_planck_constant(m):
         h: 计算得到的普朗克常量值 (单位：J·s)
         relative_error: 与实际值的相对误差(%)
     """
+    if m <= 0:
+        raise ValueError("斜率必须为正数")
     e = 1.602e-19  # 电子电荷 (单位：C)
     h_actual = 6.62607015e-34  # 普朗克常量标准值
     
