@@ -16,10 +16,8 @@ def load_data(filename):
         x: 频率数据数组 (单位：Hz)
         y: 电压数据数组 (单位：V)
     """
-    data = np.loadtxt(filename)
-    x = data[:, 0]  # 第一列为频率 ν
-    y = data[:, 1]  # 第二列为电压 V
-    return x, y
+   data = np.loadtxt(filename)
+   return data[:, 0], data[:, 1]
 
 def calculate_parameters(x, y):
     """
