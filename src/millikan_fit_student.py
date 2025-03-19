@@ -37,10 +37,6 @@ def calculate_parameters(x, y):
         Exx: x^2的平均值
         Exy: xy的平均值
     """
-   if len(x) == 0 or len(y) == 0:
-      raise ValueError("输入数据不能为空")
-   if len(x) != len(y):
-      raise ValueError("x和y数组长度必须相同")
    N = len(x)
    Ex = np.mean(x)      # x的均值
    Ey = np.mean(y)      # y的均值
