@@ -36,7 +36,7 @@ def calculate_parameters(x, y):
         Ey: y的平均值
         Exx: x^2的平均值
         Exy: xy的平均值
-    """
+    """   
    if len(x) == 0 or len(y) == 0:
       raise ValueError("输入数据不能为空")
    if len(x) != len(y):
