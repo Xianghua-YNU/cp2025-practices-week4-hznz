@@ -63,27 +63,15 @@ def plot_data_and_fit(x, y, m, c):
     返回:
         fig: matplotlib图像对象
     """
-    fig = plt.figure(figsize=(8, 6))
+   fig, ax = plt.subplots()
+   ax.scatter(x, y, label='实验数据')
+   y_fit = m*x + c
+   ax.plot(x, y_fit, 'r', label='拟合直线')
+   ax.set_xlabel('频率 (Hz)')
+   ax.set_ylabel('电压 (V)')
+   ax.legend()
+   return fig
     
-    # 绘制原始数据点
-    plt.scatter(x, y, color="blue", label="实验数据", zorder=10)
-    
-    # 生成拟合直线
-    x_fit = np.linspace(x.min(), x.max(), 100)
-    y_fit = m * x_fit + c
-    
-    # 绘制实线拟合结果
-    plt.plot(x_fit, y_fit, color="red", linewidth=1.5, label="拟合直线")
-    
-    # 设置坐标轴和标题
-    plt.xlabel("频率 ν (Hz)", fontsize=12)
-    plt.ylabel("电压 V (V)", fontsize=12)
-    plt.title("光电效应实验数据与最小二乘拟合", fontsize=14)
-    
-    # 添加图例和网格
-    plt.legend()
-    plt.grid(linestyle=":", alpha=0.6)
-    return fig
 
 def calculate_planck_constant(m):
     """
