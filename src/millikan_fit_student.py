@@ -95,33 +95,33 @@ def calculate_planck_constant(m):
 def main():
    """主函数"""
     # 数据文件路径
-    filename = "millikan.txt"
+   filename = "millikan.txt"
     
     # 加载数据
-    x, y = load_data(filename)
+   x, y = load_data(filename)
     
     # 计算拟合参数
-    m, c, Ex, Ey, Exx, Exy = calculate_parameters(x, y)
+   m, c, Ex, Ey, Exx, Exy = calculate_parameters(x, y)
     
     # 打印结果
-    print("统计量计算结果:")
-    print(f"Ex  = {Ex:.6e}")
-    print(f"Ey  = {Ey:.6e}")
-    print(f"Exx = {Exx:.6e}")
-    print(f"Exy = {Exy:.6e}\n")
-    print(f"斜率 m = {m:.6e} V/Hz")
-    print(f"截距 c = {c:.6e} V\n")
+   print("统计量计算结果:")
+   print(f"Ex  = {Ex:.6e}")
+   print(f"Ey  = {Ey:.6e}")
+   print(f"Exx = {Exx:.6e}")
+   print(f"Exy = {Exy:.6e}\n")
+   print(f"斜率 m = {m:.6e} V/Hz")
+   print(f"截距 c = {c:.6e} V\n")
     
     # 绘制数据和拟合直线
-    fig = plot_data_and_fit(x, y, m, c)
+   fig = plot_data_and_fit(x, y, m, c)
     
     # 计算普朗克常量
-    h, relative_error = calculate_planck_constant(m)
-    print(f"计算得到的普朗克常量 h = {h:.6e} J·s")
-    print(f"与实际值的相对误差: {relative_error:.2f}%")
+   h, relative_error = calculate_planck_constant(m)
+   print(f"计算得到的普朗克常量 h = {h:.6e} J·s")
+   print(f"与实际值的相对误差: {relative_error:.2f}%")
     
     # 保存图像
-    fig.savefig("millikan_fit.png", dpi=300)
-    plt.show()
+   fig.savefig("millikan_fit.png", dpi=300)
+   plt.show()
 if __name__ == "__main__":
-    main()
+   main()
