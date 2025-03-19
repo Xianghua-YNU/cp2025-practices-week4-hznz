@@ -135,7 +135,7 @@ def main():
     print(f"与实际值的相对误差: {relative_error:.2f}%")
     
     # 保存图像
-    fig.savefig("millikan_fit.png", dpi=300, bbox_inches="tight")
+    fig.savefig("millikan_fit.png", dpi=300)
     plt.show()
 if __name__ == "__main__":
     main()
