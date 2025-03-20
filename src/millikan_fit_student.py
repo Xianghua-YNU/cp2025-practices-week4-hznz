@@ -46,22 +46,10 @@ def load_data(filename):
 def calculate_parameters(x, y):
     """
     计算最小二乘拟合参数（带异常处理）
-    
-    参数:
-        x: x坐标数组
-        y: y坐标数组
-        
-    返回:
-        m: 斜率
-        c: 截距
-        Ex: x的平均值
-        Ey: y的平均值
-        Exx: x^2的平均值
-        Exy: xy的平均值
-        
-    异常:
-        ValueError: 输入数据无效
     """
+    if len(x) != len(y):
+        raise ValueError("x和y数据长度不一致")
+    
     if len(x) < 2:
         raise ValueError("至少需要2个数据点进行拟合")
     
@@ -74,7 +62,7 @@ def calculate_parameters(x, y):
         raise ValueError("输入数据必须为数值类型")
     
     denominator = Exx - Ex**2
-    if abs(denominator) < 1e-15:  # 避免浮点精度问题
+    if abs(denominator) < 1e-15:
         raise ValueError("数据x值的方差为零，无法计算斜率")
     
     m = (Exy - Ex * Ey) / denominator
